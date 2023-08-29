@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-import { OpenAI, ChatCompletionRequestMessage }from "openai";
+import { OpenAI }from "openai";
 
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subscription";
@@ -9,7 +9,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const instructionMessage: ChatCompletionRequestMessage = {
+const instructionMessage: any = {
     role: "system",
     content: "You are a code generator. You must answer only in markdown code snippets. Use code comments for explanations."
 };
